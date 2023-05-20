@@ -38,7 +38,7 @@ game_on = True
 
 while game_on:
     screen.update()
-    time.sleep(0.032)
+    time.sleep(0.016)
     ball.move()
     ball.check_collision(scoreboard)
     ball.check_paddle(left_paddle, right_paddle)

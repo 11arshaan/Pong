@@ -1,6 +1,7 @@
 from turtle import Turtle
 import math
 
+SPEED = 10
 
 class Ball(Turtle):
 
@@ -8,8 +9,8 @@ class Ball(Turtle):
         super().__init__("circle")
         self.color("white")
         self.penup()
-        self.move_x = 10
-        self.move_y = 10
+        self.move_x = SPEED
+        self.move_y = SPEED
         self.side = "right"
         self.is_pen_down = False
 

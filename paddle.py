@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+SPEED = 20
 
 class Paddle(Turtle):
 
@@ -12,21 +13,23 @@ class Paddle(Turtle):
         self.penup()
         self.goto(self.start_x, 0)
         self.moving = False
-        self.movement = 20
+        self.movement = SPEED
 
     def set_up(self):
-        self.movement = 20
-        if self.ycor() <= 250:
-            self.moving = True
+        self.movement = SPEED
+        self.moving = True
 
     def set_down(self):
-        self.movement = -20
-        if self.ycor() >= -250:
-            self.moving = True
+        self.movement = SPEED * -1
+        self.moving = True
 
     def release(self):
         self.moving = False
 
     def move(self):
-        if self.moving and -250 <= self.ycor() <= 250:
+        if  self.ycor() >= -220 and self.moving and self.movement == -20:
             self.goto(self.start_x, self.ycor() + self.movement)
+
+        if self.ycor() <= 220 and self.moving and self.movement == 20:
+            self.goto(self.start_x, self.ycor() + self.movement)
+
