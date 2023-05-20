@@ -16,15 +16,17 @@ class Paddle(Turtle):
 
     def set_up(self):
         self.movement = 20
-        self.moving = True
+        if self.ycor() <= 250:
+            self.moving = True
 
     def set_down(self):
         self.movement = -20
-        self.moving = True
+        if self.ycor() >= -250:
+            self.moving = True
 
     def release(self):
         self.moving = False
 
     def move(self):
-        if self.moving:
-            self.goto(self.start_x, self.ycor() + self.movement )
+        if self.moving and -250 <= self.ycor() <= 250:
+            self.goto(self.start_x, self.ycor() + self.movement)
